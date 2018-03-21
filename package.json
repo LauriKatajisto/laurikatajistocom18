@@ -11,7 +11,9 @@
     "start": "react-static start",
     "stage": "react-static build --staging",
     "build": "react-static build",
-    "serve": "serve dist -p 3000"
+    "serve": "serve dist -p 3000",
+    "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+    "test:unit:watch": "npm run test:unit -- --watch"
   },
   "dependencies": {
     "axios": "^0.16.2",
