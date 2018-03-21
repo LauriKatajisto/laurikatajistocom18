@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 
-const Navi = styled.div`
+export const Navi = styled.div`
   overflow: hidden;
 
   a {
@@ -52,6 +52,9 @@ const Navi = styled.div`
   }
 `;
 
+export const toggle = prevState => ({
+  open: prevState.open !== true,
+});
 
 export default class Nav extends Component {
   constructor(p) {
@@ -69,9 +72,7 @@ export default class Nav extends Component {
   }
 
   toggleNav() {
-    this.setState({
-      open: this.state.open !== true,
-    });
+    this.setState(toggle);
   }
 
   render() {
