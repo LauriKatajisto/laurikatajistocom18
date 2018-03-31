@@ -4,7 +4,7 @@ node_js:
 addons:
   apt:
     packages:
-    - sshpass
+      - sshpass
 install:
 - npm install
 script:
@@ -18,5 +18,7 @@ env:
     - secure: A8lAQ8P3Xxrt9xl37hYktzBqwctJe1CBHUpNksPfbqUUZaRRYbLkkNpXQ62mngEP3CdcOLfyGtxll2XVo/DawTwOeve17CXTv2Amk0Ugu2t/DR+5Y/r1Rd4tPkIsHv61hDN0S4ID/2yLC9Bf6mp5nqkcgmGTRmnfRMAY3ymX3nz8MhS3ip91Jb5zpetaJB6CNulKY5NxTg6CKEiHo7kg0JL5SBGoPLRNmTXiQGWtfqPs+pm06fKD5sXMPJHqYShld5wl/y2NE8PUO1/GxSVF1i7vAPAm9RSojzbwYrycOw2a7JFLIfWePMKjmUgpTS2erwONb4zSTisihLgZVd6wTmnvz3PozvQvE1UMSDscf1oCIlgmwpnTX2Wxgn1COX2ag/aR5Y+A82MAhOvs90avYgDP4LEd/3/4fUjTAYqpWShyRi2poU4wEzmsRw3GP5lZ3yyQ0rYgrj4vBnFwIRKWH+LDrBbW7IbuU96UXw5yngiIR7FjRh711Feo0WvmX59X4PQo4UAB0j2J+fGqIm1fxdgys6e8f8qgUmmW74kqznpz6rPm0SdenJWqpCWAeWjclXoAqpUTYHV4kJb3o9vLE78xkm9Eblnn9/MH5J5WCzLVzjjMwy++A7O4H5pK3tMW+6eV8LG436sBiFM60oed3gnOHU16wLRL2Lz8hFzLlms=
     - secure: Vp1JlGotjdhhwwUnM1Yg7oFetNIeXrqhQ6MTAF9Njciu3qMiydvD168uA/DheCS7ET61YL/cNd+231ICxHDFxiIRaebkdwkCS6xzqlh5exQ92vkJPSc0c/mK8PkrggBLIx6Xf012Rb/mLzrs5lCpJn6xB0JtUg5gTiOqw52/Xk4LEsiiCqQvTGXFIOOiu+D0AKvyqz5ctuCo0T6Ej+A9LM71TmU9nUsx619hEseqCooflSZdPqPXBLsLvjsy7PTXBlCqLBWBrpV4Djs++yD8VLcw+XMpjo6Ca6ilSloxyUyVuYfzxkZGl0kXHq7Acc/1BaRo85gsAClZmASdfFOceG8CIUDKkPLbMm5dwy2t0TOYv7elrp8RGAYYjQYhVF+X/mJIVGH3Vj6hx5i6KxhmFgyruKyam/u8MyMFhbB6d7si6GfyKuuxi7EAc/g2gFFIS8Y1qI2G7KNWfI98yQSUNq2pRtGOWCPzilKG9S019adGs2Y92vWqU9dfaPJx3u2ZNUNrXTNUlPMPuWWr8r+wCNcG3hL1BPWXLUbgBY/kaVQzNRqQe+LCXOYm/mUN1FOIZPm0DwD9fmX/4mkgbqXBvEdWJDcQTFZf7vFjVvA7jqFwOLZkTfeDjLf/VhM6wvLsx/iQBS88PZ1HnjPyD1BoKUgz5yzyUW5qYuLCiSFZhLw=
 after_success:
-- export SSHPASS=$SSHPASS
-- sshpass -e scp -r -P 23 2018 $SSHUSER@laurikatajisto.com:/public/html/testi
+  - export SSHPASS=$SSHPASS
+  - ls -la
+  - sshpass -e scp -r -P 23 2018 $SSHUSER@laurikatajisto.com:/public/html/testi
+ 
