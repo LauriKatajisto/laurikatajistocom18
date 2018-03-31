@@ -10,6 +10,9 @@ const client = createClient({
 });
 
 export default {
+  siteRoot: 'https://www.laurikatajisto.com',
+  basePath: '2018',
+  stagingBasePath: 'testi/2018',
   paths: {
     dist: '2018',
   },
@@ -22,7 +25,6 @@ export default {
       order: 'fields.order',
     });
 
-    console.log(entries.items[2].fields);
     const pages = entries.items.map((entry) => {
       return {
         path: entry.fields.slug,
