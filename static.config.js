@@ -10,6 +10,9 @@ const client = createClient({
 });
 
 export default {
+  paths: {
+    dist: '2018',
+  },
   getSiteData: () => ({
     title: 'React Static',
   }),

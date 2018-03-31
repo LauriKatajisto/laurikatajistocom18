@@ -1,14 +1,24 @@
 language: node_js
-
 node_js:
-  - stable
-
+- stable
+addons:
+  apt:
+    packages:
+      - sshpass
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run test:unit
-
+- npm run test:unit
+- npm run build
 branches:
   only:
   - master
+env:
+  global:
+    FTPUSER=katajist:
+      secure: V/0qatsbuAGTbTRCp/dm9OfFUl8SM+1j3LorrwEVf7p1df2kV5CRQryHTatirangcpnv64VirZeBlHPDFHO841SypPcJ4oTKtkLwOPV6TomDc/HqRmVoWh+DUpUKwf+2ZAhfgd2Z+o/PJ61Qk8AK5h8VEQCrwZm++WdTiEDHKWj8Vw+USA18ezbw03ibXYG79QYV80AUT4MYqKwWRYLMzBM7I3XUbfGtFRbkmpr0Ph74NCEuVbZAxloSCYE9/u3ozxGfAFh+huBiybkJZ22TmSlJ5wOQVd64ea+8E7LdqBMgNDUi5bXz5CnrLHI8SBwXA/UPdz1bytwi+JY7c34oW9qD1TsNi4imGGqjJh4oUdxEalH4qSKbp50w5IgYGGt1MQekDC/k5wN7aGIFcBfVs7bbPlomt7RYdQBCQDh3CuHiE6yBQ82T//sqxYlx8JcB6NpDVAQ/5fJoDntobrBdSH9LQOJYuQGHjsY1dL5MUGJ3shSMtCvDFUmfgy48CXoYloClqfd/nd9b3u1I44pJcSMXJN1W0P/tIUTrUYsRTMm+LOJuKoLSG1I0qa8jvfU2SvmqcpsV9SORDVB06Smdfyv4p3/Ix5p05TDYw49ZgUgZdFlBc1ZHKbDdkO8m878UjHZgJiZNnkV8FtE6ZjU2+iYELi8Z2h7/92yp+eI6mkI=
+    FTPPASS=BGnU6MaK:
+      secure: DUdT73RZv3+e9mzu4yFiQvHBeq94UCNHhoKlspWnnX0Qa1YmmcdzkAwZEbCzePcq7L1EKN1EiXaJbgA3JekBEeUOj3AwC71M0+OoPp5OQEfCEmp5vDSRPlLJOLIGp3mVSGNfT/NkYOVt52gAiS17BxJ/OS37lhdQOA4Yfd35N83e0W0JyZTKzCH+EjAaIMrAArSRrL+u/xF4ggGz9zEPT9/uuiPo6UDn8/EIDHOXIgccfeN8G8zky0szzUq5Tk6SCQMbbdsCaMT2JT0I6wb0vJm3wtwcFxCUUH+LXZ2K604Hmt4CSxMXo8GFPiopaw5znr9Y7DtSTd2333w8GJdMhq11GHGl4WhP6ry8D4Eg1xMAOAcbv4WEUU+BwWAZsqXNRtHK0BhEYitiW9fyW4nqgHLd8VUkpZgzdrPiNQ4+ELoTrKZng7Dn6qUt6lIYjSaB6d5ayn4hTKeSOOgBRkfbHE2F1MFOQY1U2inhSCsAE9HGWB+Uov50GFzWdkwErqW044CihpxFS1l2DqB4CgHRyJbY0rLYMxG+8dHCN69IDPp+XdeX7ePDeFfGSBPbM/CR1OWtLGFHFW4GAN7748P42sA9pqSQF3vYIQNFe5r2XRtiyJq/UXFm37qCTXGRRk6gvTgCsR2Mmj4+QoB+WV/csTfDvHTaJtJUsFwjv80WAx0=
+after_success:
+  - export SSHPASS=$FTPPASS
+  - sshpass -e scp -r -P 23 dist $FTPUSER@laurikatajisto.com:/public/html/testi
